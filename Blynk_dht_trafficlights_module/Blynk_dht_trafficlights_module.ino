@@ -40,26 +40,26 @@ void sendSensor() {
     return;
   }
 
-  Blynk.virtualWrite(V5, h);  // Humidity to V5
-  Blynk.virtualWrite(V6, t);  // Temperature to V6
+  Blynk.virtualWrite(V1, h);  // Humidity to V5
+  Blynk.virtualWrite(V0, t);  // Temperature to V6
 }
 
 // ======= Blynk Virtual Pin Handlers =======
-BLYNK_WRITE(V1) {  // Red Light Control
+BLYNK_WRITE(V2) {  // Red Light Control
   int redState = param.asInt();
   digitalWrite(RED_PIN, redState);
   Serial.print("Red Light: ");
   Serial.println(redState ? "ON" : "OFF");
 }
 
-BLYNK_WRITE(V2) {  // Yellow Light Control
+BLYNK_WRITE(V3) {  // Yellow Light Control
   int yellowState = param.asInt();
   digitalWrite(YELLOW_PIN, yellowState);
   Serial.print("Yellow Light: ");
   Serial.println(yellowState ? "ON" : "OFF");
 }
 
-BLYNK_WRITE(V3) {  // Green Light Control
+BLYNK_WRITE(V4) {  // Green Light Control
   int greenState = param.asInt();
   digitalWrite(GREEN_PIN, greenState);
   Serial.print("Green Light: ");
